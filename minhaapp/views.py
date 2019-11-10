@@ -11,8 +11,13 @@ from minhaapp.models import Presenca
 def index(request):
     return HttpResponse('yey')
 
-class ListaPresencaView(ListView):
-    model = Presenca
+# class ListaPresencaView(ListView):
+#     model = Presenca
+
+def lista(request):
+    presencas = Presenca.objects.all()
+    context = {'object_list': presencas}
+    return render(request, template_name='minhaapp/presenca_list.html', context=context)
 
 class CriaPresencaView(CreateView):
     template_name = 'minhaapp/presenca.html'
