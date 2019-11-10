@@ -1,5 +1,7 @@
+<h1>Confirma exclusão?</h1>
+<h2>Nome: {{object.name}}</h2>
+<h2>Data: {{object.date | date:'d/m/Y'}}</h2>
 <form method="post">{% csrf_token %}
-    {{ form.as_p }}
     <input type="submit" value="Submit" />
 </form>
 
