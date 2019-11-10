@@ -1,0 +1,26 @@
+<h1>Presenças</h1>
+
+<table border="1">
+<thead>
+    <tr>
+    <th>Nome</th>
+    <th>Data</th>
+    <th>Ver</th>
+    <th>Editar</th>
+    <th>Excluir</th>
+    </tr>
+</thead>
+<tbody>
+    {% for presenca in object_list %}
+    <tr>
+    <td>{{ presenca.name }}</td>
+    <td>{{ presenca.date }}</td>
+    <td><a href="{% url "presenca_view" presenca.id %}">ver</a></td>
+    <td><a href="{% url "presenca_edit" presenca.id %}">editar</a></td>
+    <td><a href="{% url "presenca_delete" presenca.id %}">excluir</a></td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+<a href="{% url "presenca_new" %}">Nova</a>
